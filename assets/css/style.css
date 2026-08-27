@@ -99,13 +99,7 @@ hr {
   }
 }
 
-.section--band {
-  background-color: var(--color-green);
-}
-.section--band h1,
-.section--band h2 {
-  color: #000;
-}
+/* Headline sections sit on the page background — the green is the button only. */
 
 .visually-hidden {
   position: absolute;
@@ -336,7 +330,22 @@ h2, .h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 24px;
+}
+/* A heading paired with a CTA sits side by side on desktop, as on the
+   original site; a heading on its own stays centered. */
+@media (min-width: 1024px) {
+  .banner .container {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .banner .container > *:not(:only-child) {
+    text-align: left;
+  }
+  .banner .container > .btn:not(:only-child) {
+    flex-shrink: 0;
+  }
 }
 
 /* ------------------------------- Buttons ------------------------------- */
